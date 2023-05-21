@@ -1,6 +1,8 @@
 // import CounterApp from "./CounterApp";
 
-import ProductApp from "./ProductApp";
+import ShoopingCart from "./ShoopingCart";
+
+// import ProductApp from "./ProductApp";
 
 // import { ErrorApp } from "./ErrorApp";
 
@@ -12,7 +14,8 @@ function App() {
       {/* <CounterApp></CounterApp> */}
       {/* <ConditionalApp></ConditionalApp> */}
       {/* <ErrorApp></ErrorApp> */}
-      <ProductApp></ProductApp>
+      {/* <ProductApp></ProductApp> */}
+      <ShoopingCart></ShoopingCart>
     </div>
   );
 }
