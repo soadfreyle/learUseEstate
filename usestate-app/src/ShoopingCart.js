@@ -11,9 +11,27 @@ const ShoopingCart = () => {
     const changedCart = cart.filter((product) => product.id !== productID);
     setcart(changedCart);
   };
+  const addProduct = (newProduct) => {
+    newProduct.id = Date.now();
+    const changedCart = [...cart, newProduct];
+    setcart(changedCart);
+  };
+  const updateProduct = (editProduct) => {
+    const changedCart = cart.map((product) => {
+      return product.id === editProduct.id ? editProduct : product;
+    });
+    setcart(changedCart);
+  };
 
   return (
     <div>
+      <button
+        onClick={() =>
+          addProduct({ title: "NEW titulo", description: "NEW descripcion" })
+        }
+      >
+        ADD
+      </button>
       ShoopingCart
       {cart.map((product) => {
         return (
@@ -22,9 +40,23 @@ const ShoopingCart = () => {
             <p>TITLE:{product.title}</p>
             <p>DESCRIPTION:{product.description}</p>
             <button onClick={() => deleteProduct(product.id)}>DELETE</button>
+            <button
+              onClick={() =>
+                updateProduct({
+                  id: product.id,
+                  title: "EDIT titulo",
+                  description: " EDIT new descripcion",
+                })
+              }
+            >
+              UPDATE
+            </button>
           </div>
         );
       })}
+      <br />
+      <br />
+      <pre>{JSON.stringify(cart, null, 2)}</pre>
     </div>
   );
 };
